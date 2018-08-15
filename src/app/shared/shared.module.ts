@@ -4,7 +4,8 @@ import {LayoutComponent} from './components/layout/layout.component';
 import {HeaderComponent} from './components/header/header.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {IonicGlobal, IonicModule} from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import {IonicGlobal, IonicModule} from '@ionic/angular';
     ],
     declarations: [
         LayoutComponent,
-        HeaderComponent
+        HeaderComponent,
+        MenuComponent
     ],
     providers: [],
     exports: [
@@ -24,7 +26,8 @@ import {IonicGlobal, IonicModule} from '@ionic/angular';
         HttpClientModule,
         IonicModule,
         // components
-        LayoutComponent
+        LayoutComponent,
+        MenuComponent
     ]
 })
 export class SharedModule {}

@@ -14,7 +14,7 @@ export class HeaderComponent {
     constructor(private menuCtrl: MenuController, private location: Location) { }
 
     openMenuClick() {
-        this.menuCtrl.open();
+        this.menuCtrl.toggle();
     }
 
     backClick() {

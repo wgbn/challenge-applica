@@ -1,0 +1,36 @@
+.exame-component {
+    ion-list {
+        ion-item {
+            border-radius: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+
+            -webkit-transition: background-color .3s;
+            -moz-transition: background-color .3s;
+            -ms-transition: background-color .3s;
+            -o-transition: background-color .3s;
+            transition: background-color .3s;
+
+            a {
+                width: 100%;
+                text-decoration: none;
+                color: #000;
+
+                span {
+                    flex-grow: 1;
+                }
+            }
+
+            &:hover {
+                background-color: var(--purple);
+
+                a {
+                    color: #fff;
+                }
+            }
+        }
+        ion-item:last-child {
+            border-bottom: 0;
+        }
+    }
+}

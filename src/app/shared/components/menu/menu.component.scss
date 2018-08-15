@@ -1,0 +1,23 @@
+.menu-component {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--grey);
+    overflow: auto;
+
+    .logo {
+        width: 100%;
+        height: 55px;
+        background-color: var(--greyLight);
+    }
+
+    .menu-content {
+        p {
+            color: #fff;
+            font-weight: 300;
+        }
+
+        button {
+            margin: .5em 0;
+        }
+    }
+}

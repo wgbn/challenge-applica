@@ -1,6 +1,9 @@
 .header-component {
-    display: flex;
     min-height: 55px;
+
+    a {
+        cursor: pointer;
+    }
 
     .btn-left, .btn-right {
         min-width: 55px;
@@ -19,7 +22,8 @@
         text-align: center;
 
         img {
-            width: 70px;
+            width: 60px;
+            display: none;
         }
     }
 }

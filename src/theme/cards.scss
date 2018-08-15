@@ -1,0 +1,17 @@
+%card-base {
+    border-radius: 10px;
+    box-shadow: 0 0 16px rgba(0,0,0,.2);
+    background-color: #fff;
+    padding: 1em;
+    margin: 1em 0;
+}
+
+[card] {
+    @extend %card-base;
+}
+
+[question-finish] {
+    @extend %card-base;
+    color: #fff;
+    background-color: var(--purple);
+}

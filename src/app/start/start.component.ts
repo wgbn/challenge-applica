@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-start',
-  templateUrl: './start.component.html',
-  styleUrls: ['./start.component.scss']
+    selector: 'app-start',
+    templateUrl: './start.component.html',
+    styleUrls: ['./start.component.scss']
 })
 export class StartComponent implements OnInit {
 
-  constructor() { }
+    public entrada: any = {
+        nome: 'walter gandarella',
+        codigo: ''
+    };
 
-  ngOnInit() {
-  }
+    constructor(private router: Router) { }
+
+    ngOnInit() { }
+
+    entrarSubmit(values) {
+        console.log(values);
+        console.log(this.entrada);
+        this.router.navigate(['/exame']);
+    }
 
 }
