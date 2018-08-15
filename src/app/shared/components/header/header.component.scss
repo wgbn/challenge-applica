@@ -1,0 +1,25 @@
+.header-component {
+    display: flex;
+    min-height: 55px;
+
+    .btn-left, .btn-right {
+        min-width: 55px;
+
+        img {
+            width: 20px;
+        }
+    }
+
+    .btn-left {
+        padding-left: .6em;
+    }
+
+    .title {
+        flex-grow: 1;
+        text-align: center;
+
+        img {
+            width: 70px;
+        }
+    }
+}
