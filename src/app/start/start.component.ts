@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {ExameService} from "../shared/services/exame.service";
+import {loading} from "../shared/decorators/loading";
+import {UtilsService} from "../shared/services/utils.service";
+import {StorageService} from "../shared/services/storage.service";
 
 @Component({
     selector: 'app-start',
@@ -8,19 +12,33 @@ import {Router} from "@angular/router";
 })
 export class StartComponent implements OnInit {
 
-    public entrada: any = {
-        nome: 'walter gandarella',
-        codigo: ''
-    };
+    entrada: any = {};
+    showCodigoLoading: boolean = false;
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private exameSrv: ExameService, private utils: UtilsService) { }
 
     ngOnInit() { }
 
+    /**
+     * Intercepta o envio do formulário, verifica se os valores existem e repassa para o serviço
+     * @param values    Valores vindos do formulário
+     */
+    @loading('showCodigoLoading')
     entrarSubmit(values) {
-        console.log(values);
-        console.log(this.entrada);
-        this.router.navigate(['/exame']);
+        if (values.nome && values.codigo) {
+            return this.exameSrv.verificaCodigoERetrnaExame(values.nome, values.codigo).subscribe(
+                success => {
+                    StorageService.setSession('nome', values.nome);
+                    this.exameSrv.setExame(success);
+                    this.router.navigate(['/exame']);
+                }, err => {
+                    this.utils.showAlert('Ooops!', 'Ocorreu um erro ao consultar nossos servidores.');
+                }
+            );
+        } else {
+            this.utils.showAlert('Ooops!', 'Você precisa informar todos os dados.')
+            return null;
+        }
     }
 
 }

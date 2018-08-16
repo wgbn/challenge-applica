@@ -10,7 +10,12 @@
             <label for="codigo">Insira a chave de acesso ao exame</label>
             <input class="upper" type="text" id="codigo" name="codigo" [(ngModel)]="entrada.codigo" required>
 
-            <button type="submit" button-purple-mini button-fix-width [disabled]="!entrada.form.valid">Iniciar</button>
+            <button type="submit" button-purple-mini button-fix-width [disabled]="!entrada.form.valid">
+                <span *ngIf="!showCodigoLoading else loadCodigo">Iniciar</span>
+                <ng-template #loadCodigo>
+                    <i class="fa fa-spin fa-circle-o-notch"></i>
+                </ng-template>
+            </button>
 
         </form>
 

@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {IonicModule} from '@ionic/angular';
 import { MenuComponent } from './components/menu/menu.component';
+import { ProgressComponent } from './components/progress/progress.component';
 
 @NgModule({
     imports: [
@@ -17,7 +18,8 @@ import { MenuComponent } from './components/menu/menu.component';
     declarations: [
         LayoutComponent,
         HeaderComponent,
-        MenuComponent
+        MenuComponent,
+        ProgressComponent
     ],
     providers: [],
     exports: [
@@ -27,7 +29,8 @@ import { MenuComponent } from './components/menu/menu.component';
         IonicModule,
         // components
         LayoutComponent,
-        MenuComponent
+        MenuComponent,
+        ProgressComponent
     ]
 })
 export class SharedModule {}

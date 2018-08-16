@@ -1,0 +1,31 @@
+.progress-component {
+
+    .progress-outer {
+        width: 100px;
+        margin: .3em 2%;
+        padding: 0;
+        text-align: center;
+        background-color: #e2dede;
+        color: #fff;
+        border-radius: 20px;
+    }
+
+    .progress-inner {
+        min-width: 15%;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 2px;
+        border-radius: 20px;
+        background-color: var(--green);
+    }
+
+    .values {
+        font-size: .7em;
+        color: var(--grey);
+
+        span {
+            color: var(--green);
+        }
+    }
+
+}

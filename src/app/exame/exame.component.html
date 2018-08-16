@@ -2,25 +2,47 @@
 
     <div class="exame-component page-content" padding>
 
-        <button button-purple routerLink="/exame/responder/1">Responder</button>
+        <h6>Exame</h6>
 
-        <ion-list card>
-            <ion-item>
-                <a routerLink="/exame/responder/1" flex justify-content-center align-items-center>
-                    <span>opção 1</span><i class="fa fa-long-arrow-right"></i>
-                </a>
-            </ion-item>
-            <ion-item>
-                <a routerLink="/exame/responder/2" flex justify-content-center align-items-center>
-                    <span>opção 2</span><i class="fa fa-long-arrow-right"></i>
-                </a>
-            </ion-item>
-            <ion-item>
-                <a routerLink="/exame/responder/3" flex justify-content-center align-items-center>
-                    <span>opção 3</span><i class="fa fa-long-arrow-right"></i>
-                </a>
-            </ion-item>
-        </ion-list>
+        <ng-container *ngIf="exame else semExame">
+            <h3>Exame de lógica avançada para a turma expert II</h3>
+
+            <div class="questions">
+
+                <ion-slides [options]="sliderOptions" #questions>
+                    <ion-slide *ngFor="let questao of exame.questoes">
+
+                        <div card>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aspernatur dicta, dolorum, ea fugiat illum inventore ipsam magni maiores minima numquam odio officiis perspiciatis reiciendis rem sed totam, voluptate.
+                        </div>
+
+                    </ion-slide>
+
+                    <ion-slide>
+
+                        <div card>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aspernatur dicta, dolorum, ea fugiat illum inventore ipsam magni maiores minima numquam odio officiis perspiciatis reiciendis rem sed totam, voluptate.
+                        </div>
+
+                    </ion-slide>
+
+                    <ion-slide>
+
+                        <div question-finish>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aspernatur dicta, dolorum, ea fugiat illum inventore ipsam magni maiores minima numquam odio officiis perspiciatis reiciendis rem sed totam, voluptate.
+                        </div>
+
+                    </ion-slide>
+                </ion-slides>
+
+            </div>
+
+            <app-progress [progress]="20" [max]="30"></app-progress>
+        </ng-container>
+
+        <ng-template #semExame>
+            <em>nenhum exame selecionado</em>
+        </ng-template>
 
     </div>
 
