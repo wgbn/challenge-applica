@@ -5,20 +5,32 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
     templateUrl: './pergunta.component.html',
     styleUrls: ['./pergunta.component.scss']
 })
-export class PerguntaComponent {
+export class PerguntaComponent implements OnInit {
 
     @Input() index: number = null;
     @Input() exame: any = null;
     @Output() result: EventEmitter<any> = new EventEmitter<any>();
 
+    values: any[] = [];
+    labels: string[] = [];
+
     constructor() { }
 
     /**
-     * Intercepta a escolha da resposta e emite para o componente pai
-     * @param idx
+     * Ao iniciar, mapeia os labels e values das opções de respostas
+     * para passar para o app-radio-group
      */
-    radioClick(idx) {
-        setTimeout( () => this.result.emit({questao: this.index, resposta: idx}), 500);
+    ngOnInit() {
+        this.values = this.exame.opcoes.map( (val, key) => key);
+        this.labels = this.exame.opcoes;
+    }
+
+    /**
+     * Intercepta a escolha da resposta e emite para o componente pai
+     * @param e
+     */
+    onSelect(e) {
+        setTimeout( () => this.result.emit({questao: this.index, resposta: e.value}), 500);
     }
 
 }

@@ -7,6 +7,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {IonicModule} from '@ionic/angular';
 import { MenuComponent } from './components/menu/menu.component';
 import { ProgressComponent } from './components/progress/progress.component';
+import { RadioComponent } from './components/radio/radio.component';
+import { RadioGroupComponent } from './components/radio-group/radio-group.component';
 
 @NgModule({
     imports: [
@@ -19,7 +21,9 @@ import { ProgressComponent } from './components/progress/progress.component';
         LayoutComponent,
         HeaderComponent,
         MenuComponent,
-        ProgressComponent
+        ProgressComponent,
+        RadioComponent,
+        RadioGroupComponent
     ],
     providers: [],
     exports: [
@@ -30,7 +34,9 @@ import { ProgressComponent } from './components/progress/progress.component';
         // components
         LayoutComponent,
         MenuComponent,
-        ProgressComponent
+        ProgressComponent,
+        RadioComponent,
+        RadioGroupComponent
     ]
 })
 export class SharedModule {}
