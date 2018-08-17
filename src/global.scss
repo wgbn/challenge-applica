@@ -28,3 +28,32 @@
 [flex-column] {
     flex-direction: column;
 }
+
+ion-radio {
+    .radio-icon {
+        width: 24px !important;
+        height: 24px !important;
+        border-color: var(--purple) !important;
+    }
+    .radio-checked {
+        border-color: var(--purple) !important;
+    }
+    .radio-inner {
+        width: 14px !important;
+        height: 14px !important;
+        left: 3px !important;
+        top: 3px !important;
+        background-color: var(--purple) !important;
+    }
+}
+
+ion-item {
+    .item-native {
+        padding: 0 !important;
+        margin: 0;
+        min-height: auto !important;
+    }
+    .in-item[slot="start"].sc-ion-radio-md-h {
+        margin: 0 !important;
+    }
+}

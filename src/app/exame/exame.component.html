@@ -1,35 +1,37 @@
 <app-layout [showBackButton]="true">
 
-    <div class="exame-component page-content" padding>
+    <div class="exame-component page-content">
 
         <h6>Exame</h6>
 
         <ng-container *ngIf="exame else semExame">
-            <h3>Exame de lógica avançada para a turma expert II</h3>
+            <h3>{{exame.titulo}}</h3>
 
             <div class="questions">
 
-                <ion-slides [options]="sliderOptions" #questions>
-                    <ion-slide *ngFor="let questao of exame.questoes">
+                <ion-slides [options]="sliderOptions" #questions (ionSlideDidChange)="onSlideChange($event)">
+                    <ion-slide *ngFor="let questao of exame.questoes; let idx = index;">
 
                         <div card>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aspernatur dicta, dolorum, ea fugiat illum inventore ipsam magni maiores minima numquam odio officiis perspiciatis reiciendis rem sed totam, voluptate.
+                            <app-pergunta [exame]="questao" [index]="idx" (result)="onQuestaoResult($event)"></app-pergunta>
                         </div>
 
                     </ion-slide>
 
                     <ion-slide>
 
-                        <div card>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aspernatur dicta, dolorum, ea fugiat illum inventore ipsam magni maiores minima numquam odio officiis perspiciatis reiciendis rem sed totam, voluptate.
-                        </div>
+                        <div question-finish flex justify-content-center align-items-center flex-column>
 
-                    </ion-slide>
+                            <p>{{nome}}, certifique-se que as questões foram preenchidas corretamente antes de submeter o exame.</p>
 
-                    <ion-slide>
+                            <p>Após a submissão, não será mais possível refazer qualquer questão pendente ou que tenha sido preenchida incorretamente.</p>
 
-                        <div question-finish>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aspernatur dicta, dolorum, ea fugiat illum inventore ipsam magni maiores minima numquam odio officiis perspiciatis reiciendis rem sed totam, voluptate.
+                            <button button-white button-mini button-fix-width (click)="submeterExame()" [disabled]="showSubmitLoading">
+                                <span *ngIf="!showSubmitLoading else submitLoading">Submeter exame</span>
+                                <ng-template #submitLoading>
+                                    <i class="fa fa-spin fa-circle-o-notch"></i>
+                                </ng-template>
+                            </button>
                         </div>
 
                     </ion-slide>
@@ -37,11 +39,13 @@
 
             </div>
 
-            <app-progress [progress]="20" [max]="30"></app-progress>
+            <app-progress [progress]="progress" [max]="exame.questoes.length"></app-progress>
         </ng-container>
 
         <ng-template #semExame>
-            <em>nenhum exame selecionado</em>
+            <div class="nenhum">
+                <em>nenhum exame selecionado</em>
+            </div>
         </ng-template>
 
     </div>

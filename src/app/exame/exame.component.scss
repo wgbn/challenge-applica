@@ -1,4 +1,5 @@
 .exame-component {
+    overflow: hidden;
 
     h6 {
         color: var(--grey);
@@ -19,7 +20,7 @@
 
     ion-slides {
         width: 100%;
-        max-width: 960px;
+        //max-width: 960px;
         margin: 0 auto;
 
         .swiper-slide-prev, .swiper-slide-next {
@@ -33,9 +34,38 @@
     }
 
     [card], [question-finish] {
-        min-height: 60vh;
+        min-height: 65vh;
         width: 90%;
         min-width: 300px;
         max-width: 630px;
+    }
+
+    [question-finish] {
+        background-color: var(--purple);
+        p {
+            text-align: left;
+        }
+
+        button {
+            margin-top: 1.5em;
+        }
+    }
+
+    .nenhum {
+        padding: 3em 0;
+        text-align: center;
+
+        em {
+            color: var(--grey);
+            font-weight: 300;
+        }
+    }
+}
+
+@media all and (min-width: 500px){
+    .exame-component {
+        [card], [question-finish] {
+            min-height: 40vh;
+        }
     }
 }

@@ -20,6 +20,7 @@ export class ExameService {
     private mockExames() {
         this.exames = [
             {
+                id: 1,
                 titulo: 'Exame de lógica avançada para turma expert II',
                 questoes: [
                     {
@@ -69,6 +70,7 @@ export class ExameService {
                 ]
             },
             {
+                id: 2,
                 titulo: 'Exame de lógica discreta para turma inicial I',
                 questoes: [
                     {
@@ -118,6 +120,7 @@ export class ExameService {
                 ]
             },
             {
+                id: 3,
                 titulo: 'Exame de química para turma A',
                 questoes: [
                     {
@@ -167,6 +170,7 @@ export class ExameService {
                 ]
             },
             {
+                id: 4,
                 titulo: 'Exame de Matemática para turma B',
                 questoes: [
                     {
@@ -220,14 +224,24 @@ export class ExameService {
 
     /**
      * Consulta a API sobre a validade do código do exame e, sendo válido, traz o exame
+     * Neste caso, esperamos 1.5s para simular uma consilta a API e escolhemos randomicamente um exame disponivgel no mock
      * @param nome      Nome do cliente
      * @param codigo    Código do exame
-     *
-     * Neste caso, esperamos 1.5s para simular uma consilta a API e escolhemos randomicamente um exame disponivgel no mock
      */
     verificaCodigoERetrnaExame(nome, codigo): Observable<any> {
         return new Observable<any>( obs => {
             setTimeout( () => obs.next(this.exames[Math.floor(Math.random() * 4)]), 1500);
+        });
+    }
+
+    /**
+     * Submete um exame para a API
+     * Neste caso, esperamos 1.5s para simular uma submissão a API
+     * @param exame
+     */
+    submeterExame(exame): Observable<any> {
+        return new Observable<any>( obs => {
+            setTimeout( () => obs.next(exame), 1500);
         });
     }
 

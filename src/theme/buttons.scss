@@ -1,9 +1,7 @@
-%button-purple {
+%button-base {
     border: 0;
     border-radius: 25px;
     padding: .5em 1em;
-    color: #fff;
-    background-color: var(--purple);
     font: {
         weight: 300;
         size: 1em;
@@ -15,12 +13,18 @@
     -o-transition: background-color .5s;
     transition: background-color .5s;
 
-    &:hover {
-        background-color: var(--purpleDark);
-    }
-
     &:disabled {
         background-color: #c0c0c0;
+    }
+}
+
+%button-purple {
+    @extend %button-base;
+    color: #fff;
+    background-color: var(--purple);
+
+    &:hover {
+        background-color: var(--purpleDark);
     }
 }
 
@@ -28,13 +32,25 @@
     @extend %button-purple;
 }
 
-[button-purple-mini] {
-    @extend %button-purple;
+%button-white {
+    @extend %button-base;
+    color: var(--purple);
+    background-color: #fff;
+
+    &:hover {
+        background-color: #e0e0e0;
+    }
+}
+
+[button-white] {
+    @extend %button-white;
+}
+
+[button-mini] {
     font-size: .85em;
 }
 
-[button-purple-large] {
-    @extend %button-purple;
+[button-large] {
     font-size: 1.3em;
 }
 

@@ -12,7 +12,8 @@ import {StorageService} from "../shared/services/storage.service";
 })
 export class StartComponent implements OnInit {
 
-    entrada: any = {};
+    nome: string = '';
+    codigo: string = '';
     showCodigoLoading: boolean = false;
 
     constructor(private router: Router, private exameSrv: ExameService, private utils: UtilsService) { }
@@ -31,6 +32,9 @@ export class StartComponent implements OnInit {
                     StorageService.setSession('nome', values.nome);
                     this.exameSrv.setExame(success);
                     this.router.navigate(['/exame']);
+
+                    this.nome = '';
+                    this.codigo = '';
                 }, err => {
                     this.utils.showAlert('Ooops!', 'Ocorreu um erro ao consultar nossos servidores.');
                 }

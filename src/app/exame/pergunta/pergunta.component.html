@@ -1,0 +1,13 @@
+<div class="pergunta-component" *ngIf="exame">
+
+    <p>{{exame.questao}}</p>
+
+    <legend>Escolha a alternativa correta</legend>
+
+    <ion-radio-group>
+        <ion-item class="resposta" *ngFor="let resposta of exame.opcoes; let idx = index;">
+            <ion-radio (click)="radioClick(idx)" class="md" slot="start" [value]="idx"></ion-radio> <ion-label>{{resposta}}</ion-label>
+        </ion-item>
+    </ion-radio-group>
+
+</div>

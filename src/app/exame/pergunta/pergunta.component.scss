@@ -1,0 +1,40 @@
+.pergunta-component {
+    text-align: left;
+    color: #666;
+
+    p {
+        margin: 0 0 .6em;
+        font: {
+            size: 1.1em;
+            weight: 400;
+        }
+    }
+
+    legend {
+        display: block;
+        color: var(--purple);
+        margin-bottom: .6em;
+        font: {
+            size: .8em;
+            weight: 300;
+        }
+    }
+
+    .resposta {
+        margin-bottom: .4em;
+
+        ion-label {
+            margin: 0 0 0 .5em;
+            font-size: .85em;
+        }
+    }
+
+}
+
+@media all and (min-width: 1280px) {
+    .pergunta-component {
+        p {
+            font-size: 1.2em;
+        }
+    }
+}

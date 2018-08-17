@@ -1,7 +1,7 @@
 .menu-component {
     width: 100%;
     height: 100vh;
-    background-color: var(--grey);
+    background-color: #e9e9e9;
     overflow: auto;
 
     .logo {
@@ -12,7 +12,7 @@
 
     .menu-content {
         p {
-            color: #fff;
+            color: #666;
             font-weight: 300;
         }
 

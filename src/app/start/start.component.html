@@ -5,12 +5,12 @@
         <form novalidate class="form-entrada" #entrada="ngForm" (ngSubmit)="entrarSubmit(entrada.value)">
 
             <label for="nome">Insira seu nome</label>
-            <input type="text" id="nome" name="nome" [(ngModel)]="entrada.nome" required>
+            <input type="text" id="nome" name="nome" [(ngModel)]="nome" required>
 
             <label for="codigo">Insira a chave de acesso ao exame</label>
-            <input class="upper" type="text" id="codigo" name="codigo" [(ngModel)]="entrada.codigo" required>
+            <input class="upper" type="text" id="codigo" name="codigo" [(ngModel)]="codigo" required>
 
-            <button type="submit" button-purple-mini button-fix-width [disabled]="!entrada.form.valid">
+            <button type="submit" button-purple button-mini button-fix-width [disabled]="!entrada.form.valid || showCodigoLoading">
                 <span *ngIf="!showCodigoLoading else loadCodigo">Iniciar</span>
                 <ng-template #loadCodigo>
                     <i class="fa fa-spin fa-circle-o-notch"></i>
