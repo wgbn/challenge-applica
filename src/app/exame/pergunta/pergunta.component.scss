@@ -33,17 +33,17 @@
             --height: 24px;
             --ion-text-color-step-600: var(--purple);
             margin: 0 !important;
-
-            /*.radio-inner {
-                --width: 14px;
-                --height: 14px;
-                --left: 3px;
-                --top: 3px;
-            }*/
         }
 
         .radio-checked {
             --ion-color-base: var(--purple);
+
+            .radio-inner {
+                width: 14px !important;
+                height: 14px !important;
+                left: 3px !important;
+                top: 3px !important;
+            }
         }
     }
 
